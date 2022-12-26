@@ -3,24 +3,28 @@
         "name": "имя",
         "surname": "фамилия",
         "link_instagram": "ссылка на аккаунт в инстаграме",
-        "link_figma": "ссылка на работу в Figma"
+        "link_figma": "ссылка на работу в Figma",
+        "nickname": "ник в инстаграме"
     },
     {
         "name": "имя",
         "surname": "фамилия",
         "link_instagram": "ссылка на аккаунт в инстаграме",
-        "link_figma": "ссылка на работу в Figma"
+        "link_figma": "ссылка на работу в Figma",
+        "nickname": "ник в инстаграме"
     },
     {
         "name": "имя",
         "surname": "фамилия",
         "link_instagram": "ссылка на аккаунт в инстаграме",
-        "link_figma": "ссылка на работу в Figma"
+        "link_figma": "ссылка на работу в Figma",
+        "nickname": "ник в инстаграме"
     },
     {
         "name": "имя",
         "surname": "фамилия",
         "link_instagram": "ссылка на аккаунт в инстаграме",
-        "link_figma": "ссылка на работу в Figma"
+        "link_figma": "ссылка на работу в Figma",
+        "nickname": "ник в инстаграме"
     }
 ]

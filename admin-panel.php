@@ -97,7 +97,7 @@
 
     //переадресація користувача на головну сторінку
     if (isset($_POST['main'])) {
-        header("Location: index.php");
+        header("Location: index.html");
         ob_end_flush();
     }
     ?>

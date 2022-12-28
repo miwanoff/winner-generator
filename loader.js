@@ -1,9 +1,11 @@
 let partBlock = document.querySelector("#participants");
+let students = [];
 fetch("students.json")
   .then((response) => {
     return response.json();
   })
   .then((data) => {
+    students = data;
     showPart(data);
   });
 function showPart(students) {

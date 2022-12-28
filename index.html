@@ -27,12 +27,13 @@
   <div class="container-fluid p-4 bg-primary text-white text-center">
     <h1>Winner generator</h1>
   </div>
-  <form action="action.php" method="post">
-    <div class="btn-group container-fluid p-4">
+  <div class="container-fluid p-4">
+    <form action="action.php" method="post">
       <!-- <input type='submit' name='winner' class="btn btn-primary" value='Знайти переможця'><br> -->
       <!-- <input type='submit' name='db' class="btn btn-primary" value='Занести дані до бази даних'><br> -->
-    </div>
-  </form>
+      <a class="btn btn-primary" href="admin-panel.php">Занести дані до бази даних</a>
+    </form>
+  </div>
   <!-- <?php
   $json_file = fopen("students.json", "a+");
   $content_json_file = fread($json_file, filesize("students.json"));

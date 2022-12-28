@@ -35,7 +35,7 @@ const students = {
     function func(){ 
   for (const key in students.participants[rand]) {
     if (Object.hasOwnProperty.call(students.participants[rand], key)) {
-      result += `<p>key: ${students.participants[rand][key]}\n</p>`;
+      result += `<p>${key}: ${students.participants[rand][key]}\n</p>`;
     }
   }
   document.getElementById("para").innerHTML = result; 

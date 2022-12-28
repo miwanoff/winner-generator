@@ -33,8 +33,9 @@ const students = [
 
 function func() {
 let result = `<div class="container mt-3">`;
-result += `<h2>Winner</h2>
+result += `
 <div class="alert alert-primary">
+<h2>Winner</h2>
 </div>
 </div>`;
 result += `<div class="row"><div class="col-sm-4 p-3 bg-primary text-white m-auto">`;

@@ -31,7 +31,6 @@
 // ];
 
 
-
 function func() {
   let result = `<div class="container mt-3">`;
   result += `
@@ -54,4 +53,4 @@ function func() {
 }
 const buttonGenerate = document.getElementById("generate");
 buttonGenerate.addEventListener("click", func); 
-
+  

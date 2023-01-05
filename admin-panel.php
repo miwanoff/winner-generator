@@ -1,4 +1,10 @@
-<?php ob_start(); ?>
+<?php ob_start();
+if (session_status() != PHP_SESSION_ACTIVE) {
+    session_start();
+}
+if (!isset($_SESSION['authorized']))
+    header("Location: authorize.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +15,7 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <style>
-        h3 {
+        #success {
             color: green;
             margin-left: 20px;
         }
@@ -27,33 +33,38 @@
 <body>
     <div class="container-fluid p-4 bg-primary text-white text-center">
         <h1>Winner generator</h1>
+        <?php
+        if (isset($_SESSION['login'])) {
+            echo "<h3>Вітаємо вас, " . $_SESSION['login'] . "!</h3>";
+        }
+        ?>
     </div>
     <div class="container-fluid p-4">
-    <form action=<?= $_SERVER['PHP_SELF'] ?> method='post'>
-        <div class=" mb-3 mt-3">
-        Введіть ім'я: <input type='text' class="form-control" name='name'>
-    </div>
-    <div class="mb-3">
-        Введіть прізвище: <input type='text' class="form-control" name='surname'>
-    </div>
-    <div class="mb-3">
-        Введіть посилання на Інстаграм: <input type='text' class="form-control" name='link_instagram'>
-    </div>
-    <div class="mb-3">
-        Введіть посилання на роботу в Figma: <input type='text' class="form-control" name='link_figma'>
-    </div>
-    <div class="mb-3">
-        Введіть нік в Інстаграмі: <input type='text' class="form-control" name='nickname'>
-    </div>
-    <input type='submit' name='submit' class="btn btn-primary" value='Підтвердити'>
-    <!-- <input type='submit' name='winner' class="btn btn-primary" value='Знайти переможця'><br> -->
-    </form>
-    <form action=<?= $_SERVER['PHP_SELF'] ?> method='post'>
-        <input type='submit' name='clear' class="btn btn-primary" value='Очистити базу даних'>
-    </form>
-    <form action=<?= $_SERVER['PHP_SELF'] ?> method='post'>
-        <input type='submit' name='main' class="btn btn-primary" value='Перейти до головної сторінки'>
-    </form>
+        <form action=<?= $_SERVER['PHP_SELF'] ?> method='post'>
+            <div class=" mb-3 mt-3">
+                Введіть ім'я: <input type='text' class="form-control" name='name'>
+            </div>
+            <div class="mb-3">
+                Введіть прізвище: <input type='text' class="form-control" name='surname'>
+            </div>
+            <div class="mb-3">
+                Введіть посилання на Інстаграм: <input type='text' class="form-control" name='link_instagram'>
+            </div>
+            <div class="mb-3">
+                Введіть посилання на роботу в Figma: <input type='text' class="form-control" name='link_figma'>
+            </div>
+            <div class="mb-3">
+                Введіть нік в Інстаграмі: <input type='text' class="form-control" name='nickname'>
+            </div>
+            <input type='submit' name='submit' class="btn btn-primary" value='Підтвердити'>
+            <!-- <input type='submit' name='winner' class="btn btn-primary" value='Знайти переможця'><br> -->
+        </form>
+        <form action=<?= $_SERVER['PHP_SELF'] ?> method='post'>
+            <input type='submit' name='clear' class="btn btn-primary" value='Очистити базу даних'>
+        </form>
+        <form action=<?= $_SERVER['PHP_SELF'] ?> method='post'>
+            <input type='submit' name='main' class="btn btn-primary" value='Перейти до головної сторінки'>
+        </form>
     </div>
     <?php
     $json_file = fopen("students.json", "a+");
@@ -76,17 +87,8 @@
         fwrite($json_fileClear, $studentsNewArr);
         // print_r($studentsNewArr);
         fclose($json_fileClear);
-        echo "<h3>Дані занесено успішно</h3>";
+        echo "<h3 id='success'>Дані занесено успішно</h3>";
     }
-
-    // //визначення переможця
-    // if (isset($_POST['winner'])) {
-    //     $randNum = rand(0, count($students) - 1);
-    //     foreach ($students as $key => $value) {
-    //         echo "Переможець: $value->name";
-    //         break;
-    //     }
-    // }
 
     //очищення бази даних 
     if (isset($_POST['clear'])) {

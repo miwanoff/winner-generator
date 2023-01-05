@@ -23,7 +23,16 @@
     </div>
     <div class="container-fluid p-4">
         <div id="participants"></div>
-        <button id="generate"> click to generate</button>
+        <form action="login.php" method="post">
+            <div class=" mb-3 mt-3">
+                <input type="login" name="login">
+            </div>
+            <div class=" mb-3 mt-3">
+                <input type="password" name="password">
+            </div>
+            <input type="submit" class="btn btn-primary" name="sign_in" value="Увійти">
+        </form><br>
+        <button id="generate" class="btn btn-primary">Згенерувати переможця</button>
         <div id="para"></div>
     </div>
     <script src="./loader.js"></script>

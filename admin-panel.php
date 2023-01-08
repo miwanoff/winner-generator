@@ -3,7 +3,7 @@ if (session_status() != PHP_SESSION_ACTIVE) {
     session_start();
 }
 if (!isset($_SESSION['authorized']))
-    header("Location: authorize.php");
+    header("Location: login.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
